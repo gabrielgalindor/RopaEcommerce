@@ -1,4 +1,4 @@
-export const NavBar = () =>{
+export const NavBar = (props) =>{
     return (
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div class="container px-5">
@@ -14,10 +14,10 @@ export const NavBar = () =>{
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#download"> Promociones </a></li>
                         <li class="nav-item"><a class="nav-link me-lg-3" href="#download"> Soporte </a></li>
                     </ul>
-                    <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
+                    <button id="btn-cart" class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0" data-bs-toggle="modal" data-bs-target="#feedbackModal">
                         <span class="d-flex align-items-center">
                             <i class="bi-chat-text-fill me-2"></i>
-                            <span class="small">Compras</span>
+                            <span class="small"> {props.children} </span>
                         </span>
                     </button>
                 </div>
