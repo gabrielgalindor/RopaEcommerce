@@ -1,0 +1,15 @@
+.card{
+    width: 15rem;
+    color: #000;
+    margin-left: 1rem;
+}
+
+.card .btn-primary{
+    background-color: #eadfdf;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.inline-card p{
+    display: inline;
+}
