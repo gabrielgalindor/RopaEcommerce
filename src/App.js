@@ -10,6 +10,8 @@ import './components/ItemCount/ItemCount.css'
 import {ItemCount} from './components/ItemCount/ItemCount.js'
 import { Item } from './components/Item/Item.js';
 import './components/Item/Item.css'
+import 'animate.css';
+import {ItemtDetail} from './components/ItemDetail/ItemDetail.js'
 
 
 const data = [
@@ -17,7 +19,10 @@ const data = [
   {id: 1, price: 20000, name: "Blusa M", img: './imgsproductos/producto1.jpg'}
 ]
 
+
+
 function App() {
+
 
   const task = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -37,6 +42,8 @@ function App() {
  
   const [itemData, setItem] = useState(null);
 
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -46,7 +53,9 @@ function App() {
         <ItemListContainer greetings="Bienvenido a Psycho Moda">
           <div className="row"> 
                 {itemData && itemData.map(({name, price, img}) =>(
-                  <Item key={name} name={name} price={price} img={img}>  </Item>
+                  <Item key={name} name={name} price={price} img={img}> 
+                      <ItemtDetail/>
+                   </Item>
                 ))}
             </div>
         </ItemListContainer>
@@ -56,3 +65,4 @@ function App() {
 }
 
 export default App;
+
