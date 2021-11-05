@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './components/NavBar.css'
-import {NavBar} from './components/NavBar.js'
+import './components/NavBar/NavBar.css'
+import './components/Presentation/Presentation.css'
+import {NavBar} from './components/NavBar/NavBar.js'
 import './components/CartWidget/CartWidget.css'
 import {CartWidget} from './components/CartWidget/CartWidget.js'
 import {ItemListContainer} from './components/ItemListContainer/ItemListContainer.js'
@@ -11,23 +12,28 @@ import {ItemCount} from './components/ItemCount/ItemCount.js'
 import { Item } from './components/Item/Item.js';
 import './components/Item/Item.css'
 import 'animate.css';
-import {ItemtDetail} from './components/ItemDetail/ItemDetail.js'
-
+import {ItemDetail} from './components/ItemDetail/ItemDetail.js'
+import {Home} from './sections/Home.js'
+import {Catalogo} from './sections/Catalogo.js'
+import {Promociones} from './sections/Promociones.js'
+import {Support} from './sections/Support.js'
+import {ItemSection} from './sections/ItemSection.js'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 const data = [
-  {id: 0, price: 10500, name: "Camisa Skull XL", img: './imgsproductos/producto0.jpg'},
-  {id: 1, price: 20000, name: "Blusa M", img: './imgsproductos/producto1.jpg'}
+  {id: 0, price: 10500, name: "Camisa Skull XL", img: 'http://localhost:3000/imgsproductos/producto0.jpg'},
+  {id: 1, price: 20000, name: "Blusa M", img: 'http://localhost:3000/imgsproductos/producto1.jpg'},
+  {id: 2, price: 20000, name: "Blusa S", img: 'http://localhost:3000/imgsproductos/producto1.jpg'}
 ]
 
 
 
 function App() {
 
-
   const task = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
-    }, 500);
+    }, 50);
   })
 
   task.then(
@@ -39,28 +45,42 @@ function App() {
     }
 
   ).catch((err) => {}).finally(()=>{});
- 
+
   const [itemData, setItem] = useState(null);
 
-
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <NavBar> 
-          <CartWidget/>
-        </NavBar>
-        <ItemListContainer greetings="Bienvenido a Psycho Moda">
-          <div className="row"> 
-                {itemData && itemData.map(({name, price, img}) =>(
-                  <Item key={name} name={name} price={price} img={img}> 
-                      <ItemtDetail/>
-                   </Item>
-                ))}
-            </div>
-        </ItemListContainer>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+           <Home/>
+        </Route>
+        {itemData && itemData.map(({id, name, price, img}) =>( 
+        <Route exact path="/item/:ItemId">
+          <ItemSection>            
+              <div className="centercard">
+                <Item ItemId={id} key={id} name={name} price={price} img={img}> 
+                </Item>
+              </div>
+          </ItemSection>
+        </Route>
+        ))}
+      </Switch>
+      <Switch>
+        <Route exact path="/Catalogo">
+           <Catalogo/>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route exact path="/Promociones">
+           <Promociones/>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route exact path="/Support">
+           <Support/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

@@ -1,0 +1,14 @@
+#presentationBlock{
+    background-color: #848d1a;
+    min-height: 25rem;
+}
+
+h1{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    color: #0b1c1b;
+    background-color: #fff;
+}

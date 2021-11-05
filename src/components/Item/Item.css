@@ -1,15 +1,25 @@
 .card{
     width: 15rem;
     color: #000;
-    margin-left: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    background-color: #044d29;
+    color: #eaff00;
 }
 
 .card .btn-primary{
-    background-color: #eadfdf;
-    color: #007bff;
+    
     font-weight: bold;
 }
 
 .inline-card p{
     display: inline;
+}
+
+.card-title{
+    color: #eaff00;
+}
+
+.card-title:hover{
+    color: #eaff00;
 }

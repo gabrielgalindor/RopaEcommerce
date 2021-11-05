@@ -1,0 +1,39 @@
+#mainNav{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: rgba(11,28,27,0.75);
+    color: #eaff00;
+}
+
+#mainNav p {
+    margin-right: 10rem;
+    color: #eaff00;
+}
+
+#btn-cart{
+    margin-left: 5rem;
+    color: #eaff00;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #eaff00;
+    text-decoration: none;
+    font-size: 11pt;
+}
+
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #eaff00!important;
+    text-decoration: none;
+    font-size: 11pt;
+}
+#instagram-icon{
+    border-left: #eaff00 solid 2px;
+    padding-left: 2rem;
+    margin-left: 12rem;
+}
+
+.nav-icon{
+    max-height: 1.5rem;
+    margin-left: 4rem;
+    margin-right: 1rem;
+}

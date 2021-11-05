@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,7 +21,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #0b1c1b;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,7 +44,46 @@
   }
 }
 
+.robotofont{
+  font-family: 'Roboto', sans-serif;
+}
 
-.pt-serif {
-  font-family: 'PT Serif', serif;
+.rockSalt{
+  font-family: 'Rock Salt', cursive;
+}
+
+.lightfont{
+  font-weight: 300;
+  font-style: italic;
+}
+
+.mediumfont{
+  font-weight: 500;
+}
+
+.boldfont{
+  font-weight: bold;
+  font-style: italic;
+}
+
+.font14pt{
+  font-size: 14pt;
+}
+.whiteback{
+  background-color: #fff;
+  color: #0b1c1b;
+}
+.marginTop-2{
+  margin-top: 2rem;
+}
+
+.marginBottom-2{
+  margin-bottom: 2rem;
+}
+
+
+.centercard{
+  display: inline-block;
+  margin-left: 100%;
+  margin-right: 100%;
 }

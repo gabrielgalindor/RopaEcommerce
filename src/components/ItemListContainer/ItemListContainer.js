@@ -2,10 +2,14 @@ export const ItemListContainer = (props)=>{
     return(
         
         <div className="container-fluid">
-            
-            <h1> {props.greetings} </h1>
-            <p> Tu página web de la moda que este de acuerdo a tu psycho </p>
-            
+            <div className="row">
+                <div className="col-2">
+
+                </div>
+                <div className="col-8 marginTop-2 marginBottom-2 rockSalt">
+                    <h2> {props.sectionTitle} </h2>
+                </div>
+            </div>
             <div className="row">
                 {props.children}
             </div>
