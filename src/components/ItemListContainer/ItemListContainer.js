@@ -11,7 +11,9 @@ export const ItemListContainer = (props)=>{
                 </div>
             </div>
             <div className="row">
-                {props.children}
+                <div className="col-12">
+                    {props.children}
+                </div>
             </div>
         </div>
     )

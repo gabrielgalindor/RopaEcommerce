@@ -57,10 +57,8 @@ function App() {
         {itemData && itemData.map(({id, name, price, img}) =>( 
         <Route exact path="/item/:ItemId">
           <ItemSection>            
-              <div className="centercard">
-                <Item ItemId={id} key={id} name={name} price={price} img={img}> 
-                </Item>
-              </div>
+              <Item ItemId={id} key={id} name={name} price={price} img={img}> 
+              </Item>
           </ItemSection>
         </Route>
         ))}

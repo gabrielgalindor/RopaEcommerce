@@ -2,6 +2,23 @@
   text-align: center;
 }
 
+*{
+animation: mymove 3s 1;
+}
+
+@keyframes mymove {
+  from {
+        filter: grayscale(57%) brightness(126%) hue-rotate(142deg) contrast(98%);
+        -webkit-filter: grayscale(57%) brightness(126%) hue-rotate(142deg) contrast(98%);
+        -moz-filter: grayscale(57%) brightness(126%) hue-rotate(142deg) contrast(98%);
+      }
+  to {
+        filter: grayscale(0%) brightness(100%) hue-rotate(0deg) contrast(100%);
+        -webkit-filter: grayscale(0%) brightness(100%) hue-rotate(0deg) contrast(100%);
+        -moz-filter: grayscale(0%) brightness(100%) hue-rotate(0deg) contrast(100%);
+      }
+}
+
 a{
   text-decoration: none;
 }

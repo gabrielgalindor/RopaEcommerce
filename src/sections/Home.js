@@ -22,7 +22,7 @@ export const Home = () => {
   const task = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(data);
-    }, 500);
+    }, 50);
   })
 
   task.then(

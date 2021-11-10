@@ -20,7 +20,7 @@ export const ItemCount = () =>{
         <img className="card-img-top" src={item} alt="Card image cap" />
         <div className="card-body">
             <h5 className="card-title">Camisa</h5>
-            <div className="inline-card">
+            <div className="inline-card" onAdd={OnAdd}>
                 <button onClick={OnAdd} type="button" className="btn btn-primary">+</button>
                 <p>{itemNumber}</p>
                 <button onClick={OnSub} type="button" className="btn btn-primary">-</button>
