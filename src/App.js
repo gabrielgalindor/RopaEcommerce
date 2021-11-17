@@ -10,6 +10,7 @@ import {ItemListContainer} from './components/ItemListContainer/ItemListContaine
 import './components/ItemCount/ItemCount.css'
 import {ItemCount} from './components/ItemCount/ItemCount.js'
 import { Item } from './components/Item/Item.js';
+import {Cart} from './components/Cart/Cart.js'
 import './components/Item/Item.css'
 import 'animate.css';
 import {ItemDetail} from './components/ItemDetail/ItemDetail.js'
@@ -18,6 +19,7 @@ import {Catalogo} from './sections/Catalogo.js'
 import {Promociones} from './sections/Promociones.js'
 import {Support} from './sections/Support.js'
 import {ItemSection} from './sections/ItemSection.js'
+import { CartSection } from './sections/CartSection';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 const data = [
@@ -64,9 +66,17 @@ function App() {
           </ItemSection>
         </Route>
         ))}
+        {itemData && itemData.map(({id, name, price, img}) =>( 
+        <Route exact path="/Cart/:ItemId">
+          <CartSection>            
+              <Cart condition={true} CartNumber={1} CartPrice={price}> 
+              </Cart>
+          </CartSection>
+        </Route>
+        ))}
       </Switch>
       <Switch>
-        <Route exact path="/Catalogo">
+        <Route exact path="/Cart">
            <Catalogo/>
         </Route>
       </Switch>

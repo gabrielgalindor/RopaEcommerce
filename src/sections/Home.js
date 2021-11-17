@@ -6,6 +6,7 @@ import {ItemCount} from '../components/ItemCount/ItemCount.js'
 import { Item } from '../components/Item/Item.js';
 import {ItemDetail} from '../components/ItemDetail/ItemDetail.js'
 import {Presentation} from '../components/Presentation/Presentation.js'
+import {Cart} from '../components/Cart/Cart.js'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import { createContext } from 'react';
 
@@ -38,13 +39,17 @@ export const Home = () => {
   ).catch((err) => {}).finally(()=>{});
  
   const [itemData, setItem] = useState(null);
+ 
   
   const AddToCart = () =>{
+    setConditional(true);
     setCartCounts(CartCounts+1);
+    setTotalprice(Totalprice+10000);
   }
 
   const [CartCounts, setCartCounts] = useState(0);
-
+  const [Conditional, setConditional] = useState(false);
+  const [Totalprice, setTotalprice] = useState(0); 
     return(
         <div className="Home">
         <header className="App-header">
@@ -62,6 +67,9 @@ export const Home = () => {
                       </Item>
                   ))}
                   <button onClick={AddToCart}> Agregar </button>
+              </div>
+              <div className="row">
+                    <Cart condition={Conditional} CartNumber={CartCounts} CartPrice={Totalprice}></Cart>
               </div>
           </ItemListContainer>
         </header>
