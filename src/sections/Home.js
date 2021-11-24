@@ -9,15 +9,20 @@ import {Presentation} from '../components/Presentation/Presentation.js'
 import {Cart} from '../components/Cart/Cart.js'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import { createContext } from 'react';
+import { getFirestore} from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 const data = [
-    {id: 0, price: "$20.500 COP", name: "Camisa Skull XL", img: './imgsproductos/producto0.jpg'},
-    {id: 1, price: "$20.500 COP", name: "Blusa M", img: './imgsproductos/producto1.jpg'},
-    {id: 2, price: "$20.500 COP", name: "Camisa Skull XL", img: './imgsproductos/producto0.jpg'},
-    {id: 3, price: "$20.500 COP", name: "Blusa M", img: './imgsproductos/producto1.jpg'}
-  ]
-  
-  const CartContext = createContext();
+  {id: 0, price: "$20.500 COP", title: "Camisa Skull XL", img: './imgsproductos/producto0.jpg'},
+  {id: 1, price: "$20.500 COP", title: "Blusa M", img: './imgsproductos/producto1.jpg'},
+  {id: 2, price: "$20.500 COP", title: "Camisa Skull XL", img: './imgsproductos/producto0.jpg'},
+  {id: 3, price: "$20.500 COP", title: "Blusa M", img: './imgsproductos/producto1.jpg'}
+]
+
+
+
+
+const CartContext = createContext();
   
 
 export const Home = () => {
@@ -37,10 +42,9 @@ export const Home = () => {
     }
 
   ).catch((err) => {}).finally(()=>{});
- 
-  const [itemData, setItem] = useState(null);
- 
-  
+
+  //Logica de agregar al carrito
+
   const AddToCart = () =>{
     setConditional(true);
     setCartCounts(CartCounts+1);
@@ -50,6 +54,50 @@ export const Home = () => {
   const [CartCounts, setCartCounts] = useState(0);
   const [Conditional, setConditional] = useState(false);
   const [Totalprice, setTotalprice] = useState(0); 
+
+  //Logica del Buyer
+ 
+  const [itemData, setItem] = useState(null);
+  const [buyerData, setBuyer] = useState(null);
+  //Vars from Buyer
+  const [buyerName, setbuyerName] = useState("");
+  const [buyerPhone, setbuyerPhone] = useState("00000000");
+  const [buyerEmail, setbuyerEmail] = useState("");
+
+
+ 
+  const AddBuyer = () =>{
+    setbuyerName(document.getElementById("fname").value);
+    setbuyerPhone(document.getElementById("lphone").value);
+    setbuyerEmail(document.getElementById("lemail").value);
+    setBuyer({buyerName, buyerPhone, buyerEmail});
+    console.log(buyerData);
+  }
+  
+
+  //Logica de agregar Order
+
+  const [order, setOrder] = useState(null);
+
+  const AddBuy = () =>{
+    setOrder(
+        {"buyer": buyerData,
+          "items":[
+              {id: 0, price: "$20.500 COP", title: "Camisa Skull XL"}
+            ],
+          "total": 20500
+        }
+    )
+    console.log(order);
+
+    const db = getFirestore();
+    const ordersCollection = collection(db, 'orders');
+    addDoc(ordersCollection,order).then( ({id}) => console.log(id));
+
+
+  }
+  
+
     return(
         <div className="Home">
         <header className="App-header">
@@ -72,6 +120,19 @@ export const Home = () => {
                     <Cart condition={Conditional} CartNumber={CartCounts} CartPrice={Totalprice}></Cart>
               </div>
           </ItemListContainer>
+          <div className="row">
+              <div>
+                    <label for="fname">Nombre:</label><br/>
+                    <input type="text" id="fname" name="fname"/><br/>
+                    <label for="lemail">Email:</label><br/>
+                    <input type="email" id="lemail" name="lemail"/><br/>
+                    <label for="lphone">Télefono:</label><br/>
+                    <input type="number" id="lphone" name="lphone"/><br/> <br/>
+                    <input type="submit" value="Crear Comprador" onClick={AddBuyer}/>  <br/> <br/>
+
+                    <input type="submit" value="Finalizar compra" onClick={AddBuy}/>  <br/> <br/>
+                </div> 
+          </div>
         </header>
       </div>
     )
