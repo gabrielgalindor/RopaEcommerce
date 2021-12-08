@@ -1,0 +1,1 @@
+print("Vida hijueputa, windows de mierda ")

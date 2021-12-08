@@ -22,6 +22,7 @@ import {ItemSection} from './sections/ItemSection.js'
 import { CartSection } from './sections/CartSection';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
+
 const data = [
   {id: 0, price: 10500, name: "Camisa Skull XL", img: 'http://localhost:3000/imgsproductos/producto0.jpg'},
   {id: 1, price: 20000, name: "Blusa M", img: 'http://localhost:3000/imgsproductos/producto1.jpg'},

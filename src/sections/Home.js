@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {NavBar} from '../components/NavBar/NavBar.js'
 import {CartWidget} from '../components/CartWidget/CartWidget.js'
 import {ItemListContainer} from '../components/ItemListContainer/ItemListContainer.js'
@@ -11,6 +11,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import { createContext } from 'react';
 import { getFirestore} from '../firebase';
 import { collection, addDoc } from 'firebase/firestore';
+import {hostEndpoint} from '../constants/index.js';
 
 const data = [
   {id: 0, price: "$20.500 COP", title: "Camisa Skull XL", img: './imgsproductos/producto0.jpg'},
@@ -22,10 +23,27 @@ const data = [
 
 
 
+
 const CartContext = createContext();
   
 
 export const Home = () => {
+
+  const [camisas,setCamisas] = useState(null);
+
+  const getCamisas = async () =>{
+    const res = await fetch(hostEndpoint+'/api/');
+    const data = await res.json();
+    //console.log(data.items);
+    setCamisas(data.items);
+  }
+
+  useEffect(()=>{
+    getCamisas();
+    
+  })
+
+ // console.log(camisas);
     
   const task = new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -79,23 +97,6 @@ export const Home = () => {
 
   const [order, setOrder] = useState(null);
 
-  const AddBuy = () =>{
-    setOrder(
-        {"buyer": buyerData,
-          "items":[
-              {id: 0, price: "$20.500 COP", title: "Camisa Skull XL"}
-            ],
-          "total": 20500
-        }
-    )
-    console.log(order);
-
-    const db = getFirestore();
-    const ordersCollection = collection(db, 'orders');
-    addDoc(ordersCollection,order).then( ({id}) => console.log(id));
-
-
-  }
   
 
     return(
@@ -109,12 +110,9 @@ export const Home = () => {
           </Presentation>
           <ItemListContainer sectionTitle="Top 8 de la semana">
             <div className="row"> 
-                  {itemData && itemData.map(({id, name, price, img}) =>(
-                    
-                      <Item ItemId={id} key={name} name={name} price={price} img={img}> 
-                      </Item>
-                  ))}
-                  <button onClick={AddToCart}> Agregar </button>
+                  <h2 className=" marginBottom-2 rockSalt"> Camisas </h2>
+                  {camisas.map( camisa => <Item ItemId={camisa.id} key={camisa.name} name={camisa.name} price={camisa.price} img={camisa.img}> <button onClick={AddToCart}> Agregar </button> </Item> )}
+                  
               </div>
               <div className="row">
                     <Cart condition={Conditional} CartNumber={CartCounts} CartPrice={Totalprice}></Cart>
@@ -130,7 +128,7 @@ export const Home = () => {
                     <input type="number" id="lphone" name="lphone"/><br/> <br/>
                     <input type="submit" value="Crear Comprador" onClick={AddBuyer}/>  <br/> <br/>
 
-                    <input type="submit" value="Finalizar compra" onClick={AddBuy}/>  <br/> <br/>
+                    
                 </div> 
           </div>
         </header>
