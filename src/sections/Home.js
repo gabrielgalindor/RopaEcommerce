@@ -22,7 +22,7 @@ const data = [
 
 
 
-
+//Testing Pull
 
 const CartContext = createContext();
   
@@ -111,7 +111,9 @@ export const Home = () => {
           <ItemListContainer sectionTitle="Top 8 de la semana">
             <div className="row"> 
                   <h2 className=" marginBottom-2 rockSalt"> Camisas </h2>
-                  {camisas.map( camisa => <Item ItemId={camisa.id} key={camisa.name} name={camisa.name} price={camisa.price} img={camisa.img}> <button onClick={AddToCart}> Agregar </button> </Item> )}
+                  {camisas ? camisas.map( camisa =>
+                     (<Item ItemId={camisa.id} key={camisa.name} name={camisa.name} price={camisa.price} img={camisa.img}> <button onClick={AddToCart}> Agregar </button> </Item>)
+                  ):null}
                   
               </div>
               <div className="row">
