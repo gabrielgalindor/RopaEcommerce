@@ -10,6 +10,7 @@ import {ItemListContainer} from './components/ItemListContainer/ItemListContaine
 import './components/ItemCount/ItemCount.css'
 import {ItemCount} from './components/ItemCount/ItemCount.js'
 import { Item } from './components/Item/Item.js';
+import './components/Cart/cart.css'
 import {Cart} from './components/Cart/Cart.js'
 import './components/Item/Item.css'
 import 'animate.css';
@@ -20,6 +21,7 @@ import {Promociones} from './sections/Promociones.js'
 import {Support} from './sections/Support.js'
 import {ItemSection} from './sections/ItemSection.js'
 import { CartSection } from './sections/CartSection';
+import {Compras} from './sections/Compras.js';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 
@@ -29,7 +31,7 @@ const data = [
   {id: 2, price: 20000, name: "Blusa S", img: 'http://localhost:3000/imgsproductos/producto1.jpg'}
 ]
 
-
+export var MasterOrder = 2;
 
 function App() {
 
@@ -59,25 +61,9 @@ function App() {
         <Route exact path="/">
            <Home/>
         </Route>
-        {itemData && itemData.map(({id, name, price, img}) =>( 
-        <Route exact path="/item/:ItemId">
-          <ItemSection>            
-              <Item ItemId={id} key={id} name={name} price={price} img={img}> 
-              </Item>
-          </ItemSection>
-        </Route>
-        ))}
-        {itemData && itemData.map(({id, name, price, img}) =>( 
-        <Route exact path="/Cart/:ItemId">
-          <CartSection>            
-              <Cart condition={true} CartNumber={1} CartPrice={price}> 
-              </Cart>
-          </CartSection>
-        </Route>
-        ))}
       </Switch>
       <Switch>
-        <Route exact path="/Cart">
+        <Route exact path="/Catalogo">
            <Catalogo/>
         </Route>
       </Switch>
@@ -89,6 +75,11 @@ function App() {
       <Switch>
         <Route exact path="/Support">
            <Support/>
+        </Route>
+      </Switch>
+      <Switch>
+        <Route exact path="/Compras">
+           <Compras/>
         </Route>
       </Switch>
     </BrowserRouter>

@@ -45,8 +45,17 @@ export const Promociones = () => {
               <CartWidget/>
             </NavBar>
           </Presentation>
-          <ItemListContainer sectionTitle="Camisas">
-            
+          <ItemListContainer sectionTitle="Promociones">
+          <div className="row">
+                  <div className="col-12">
+                      <h3 className="catTitle"> Por ahora por culpa de la pandemia ... ¡Sorry! ¡Somos Pobres! </h3>
+                  </div>
+              </div>
+              <div className="row">
+                     <div className="col-12">
+                            <img className="catImg" src="./imgsproductos/catalogo.jpg"></img>
+                     </div>
+              </div>
           </ItemListContainer>
         </header>
       </div>

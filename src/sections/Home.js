@@ -64,6 +64,7 @@ export const Home = () => {
   //Logica de agregar al carrito
 
   const AddToCart = () =>{
+    
     setConditional(true);
     setCartCounts(CartCounts+1);
     setTotalprice(Totalprice+10000);
@@ -89,15 +90,21 @@ export const Home = () => {
     setbuyerPhone(document.getElementById("lphone").value);
     setbuyerEmail(document.getElementById("lemail").value);
     setBuyer({buyerName, buyerPhone, buyerEmail});
-    console.log(buyerData);
+    
   }
+  
   
 
   //Logica de agregar Order
 
-  const [order, setOrder] = useState(null);
+  const [order, setOrder] = useState([]);
+  const [ordenes, setOrdenes] = useState([]);
 
-  
+  const CartFun = (AddOrder) =>{
+    setConditional(true);
+    ordenes.push(AddOrder);
+    console.log(ordenes);
+} 
 
     return(
         <div className="Home">
@@ -112,12 +119,21 @@ export const Home = () => {
             <div className="row"> 
                   <h2 className=" marginBottom-2 rockSalt"> Camisas </h2>
                   {camisas ? camisas.map( camisa =>
-                     (<Item ItemId={camisa.id} key={camisa.name} name={camisa.name} price={camisa.price} img={camisa.img}> <button onClick={AddToCart}> Agregar </button> </Item>)
+                     (<Item ItemId={camisa.id} key={camisa.title} name={camisa.title} price={camisa.price} img={camisa.img} cartFunction={CartFun}>
+                      </Item>)
+                  ):null}
+                  
+              </div>
+              <div className="row"> 
+                  <h2 className=" marginBottom-2 rockSalt"> Camisas </h2>
+                  {camisas ? camisas.map( camisa =>
+                     (<Item ItemId={camisa.id} key={camisa.title} name={camisa.title} price={camisa.price} img={camisa.img} cartFunction={CartFun}>
+                      </Item>)
                   ):null}
                   
               </div>
               <div className="row">
-                    <Cart condition={Conditional} CartNumber={CartCounts} CartPrice={Totalprice}></Cart>
+                    <Cart condition={Conditional} order={ordenes}></Cart>
               </div>
           </ItemListContainer>
           <div className="row">
@@ -129,8 +145,6 @@ export const Home = () => {
                     <label for="lphone">Télefono:</label><br/>
                     <input type="number" id="lphone" name="lphone"/><br/> <br/>
                     <input type="submit" value="Crear Comprador" onClick={AddBuyer}/>  <br/> <br/>
-
-                    
                 </div> 
           </div>
         </header>

@@ -45,8 +45,17 @@ export const Catalogo = () => {
               <CartWidget/>
             </NavBar>
           </Presentation>
-          <ItemListContainer sectionTitle="Camisas">
-            
+          <ItemListContainer sectionTitle="Nuestro Catalogo">
+              <div className="row">
+                  <div className="col-12">
+                      <h3 className="catTitle"> Por ahora disponemos de nuestro catalogo en la sección de inicio </h3>
+                  </div>
+              </div>
+              <div className="row">
+                     <div className="col-12">
+                            <img className="catImg" src="./imgsproductos/catalogo.jpg"></img>
+                     </div>
+              </div>
           </ItemListContainer>
         </header>
       </div>

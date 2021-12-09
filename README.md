@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Proyecto final - curso React JS Coder House
+## Por: Ing. Gabriel Galindo - dic 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto tiene la siguiente estructura:
+- backend: Contiene archivos hechos en Flask que permiten hacer los servicios Backend de la API Restulf con la que se comunica el proyecto
+- node_modules: los modulos de npm para que funcione el proyecto
+- public: carpeta de los archivos estáticos del proyecto y allí encontrará las imagenes del mismo
+- src: todos los archivos de JS que permiten la correcta ejecución de React Js
 
-## Available Scripts
+Para correr este proyecto se recomiendo correr por medio de un entorno virtual, en el entorno de linux lo puede activar así:
 
-In the project directory, you can run:
+> source activate 
 
-### `npm start`
+Para iniciar la aplicación:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+> python3 app.py
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+De esta manera ya está corriendo los servicios del Backend del proyecto. Recuerde revisar muy bien la dirección que le desplega Flask, pues tendrá que colocar esa dirección en la ruta './src/constants/index.js' en la variable hostEndpoint.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Para arrancar el proyecto en React Js: 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> 
+> npm start
+> 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Asegurese de tener instalados los paquetes necesarios para que arranque el proyecto en su servidor.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Tech
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Este tutorial utiliza las siguientes tecnologías:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React JS] - Tecnología Frontend!
+- [Flask] - Framework de Python
+- [Flask_Restful] - Framework de respuestas API Resful
+- [SQL Alchemy] - Kit de base de datos flexible para Python
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   [React JS]: <https://es.reactjs.org/>
+   [Flask]: <https://flask.palletsprojects.com/en/2.0.x/>
+   [Flask_Restful]: <https://flask-restful.readthedocs.io/en/latest/>
+   [SQL Alchemy]: <https://www.sqlalchemy.org/>
+ 

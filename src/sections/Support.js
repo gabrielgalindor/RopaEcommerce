@@ -45,8 +45,18 @@ export const Support = () => {
               <CartWidget/>
             </NavBar>
           </Presentation>
-          <ItemListContainer sectionTitle="Camisas">
-            
+          <ItemListContainer sectionTitle="Soporte">
+            <div className="row">
+                    <div className="col-12">
+                        <h3 className="catTitle"> Contacta a nuestro equipo de soporte ... ¡Qué es básicamente el único tipo que trabaja! </h3>
+                    </div>
+                </div>
+                <div className="row">
+                      <div className="col-12">
+                              <p className="catTitle"> Gabriel Galindo </p> <br></br>
+                              <p className="catTitle"> Whatsapp: +573203696649 </p> <br></br>
+                      </div>
+                </div>
           </ItemListContainer>
         </header>
       </div>

@@ -11,12 +11,12 @@ export const NavBar = (props) =>{
                 </button>
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ms-auto  my-lg-0">
-                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="#features"> Inicio </a></li>
-                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="#download"> Catalogo </a></li>
-                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="#download"> Promociones </a></li>
-                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="#download"> Soporte </a></li>
+                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="/"> Inicio </a></li>
+                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="/Catalogo"> Catalogo </a></li>
+                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="/Promociones"> Promociones </a></li>
+                        <li className="nav-item"><a className="nav-link me-lg-3 robotofont mediumfont" href="/Support"> Soporte </a></li>
                     </ul>
-                    <span className="small">  <a href="#"> <img id="instagram-icon" className="nav-icon" src={InstagramIcon}/> </a> </span>
+                    <span className="small">  <a href="https://www.instagram.com/gabrielgalindor/"> <img id="instagram-icon" className="nav-icon" src={InstagramIcon}/> </a> </span>
                     <span className="small"> <a href="#"> {props.children} </a> </span>
                 </div>
             </div>

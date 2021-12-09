@@ -1,0 +1,20 @@
+.FloatCart{
+    position: fixed;
+    top: 70%;
+    left: 10px;
+    z-index: 2000;
+    background-color: #044d29;
+    border: 2px solid #eaff00;
+    padding: 4px;
+
+}
+
+.cartTitle{
+    font-size: 14pt;
+}
+
+.CartButton{
+    font-size: 12pt;
+    margin-left: 25%;
+    margin-bottom: 2%;
+}
